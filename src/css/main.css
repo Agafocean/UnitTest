@@ -1,0 +1,19 @@
+input.invalid {
+    border: 2px solid red;
+}
+
+.validation.failed:after {
+    color: red;
+    content: 'Validation failed';
+}
+
+.validation.passed:after {
+    color: green;
+    content: 'Validation passed';
+}
+
+.container {
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
