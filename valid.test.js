@@ -50,7 +50,7 @@ const textHTML = `<body>
 </div>
 </body>
 `;
-test ('Testing HTML ...', () => {
+test ('Testing HTML. It contains 4 fields: Card number, Expires MM/YY, Security code, Email', () => {
   expect (textHTML.match(/input/g).length).toBe(4);
   textHTML.includes('placeholder="Card number"');
   textHTML.includes('placeholder="Expires MM/YY"');
