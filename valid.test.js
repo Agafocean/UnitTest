@@ -1,28 +1,28 @@
 import Payment from 'payment';
 
-test ('пропускает корректный номер карты', () => {
+test ('the card number is correct', () => {
   expect (Payment.fns.validateCardNumber('4242 4242 4242 4242')).toBe(true);
 });
-test ('не пропускает произвольную строку, содержащую любые нецифровые символы', () => {
+test ('the card number is incorrect, contains non digit characters', () => {
   expect (Payment.fns.validateCardNumber('4242 4242 g242 4242')).toBe(false);
 });
-test ('не пропускает строку с недостаточным количеством цифр', () => {
+test ('the card number is incorrect, not enough digits', () => {
   expect (Payment.fns.validateCardNumber('4242 4242 4242 4')).toBe(false);
 });
-test ('не пропускает строку со слишком большим количеством цифр ', () => {
+test ('the card number is incorrect, too many digits', () => {
   expect (Payment.fns.validateCardNumber('4242 4242 4242 4242 4242')).toBe(false);
 });
 
-test ('пропускает строку с тремя цифровыми символами', () => {
+test ('CVC is correct', () => {
   expect (Payment.fns.validateCardCVC('123')).toBe(true);
 });
-test ('не пропускает строки с 1-2 цифровыми символами', () => {
+test ('CVC is incorrect, not enough digits', () => {
   expect (Payment.fns.validateCardCVC('13')).toBe(false);
 });
-test ('не пропускает строки с 4+ цифровыми символами', () => {
+test ('CVC is incorrect, too many digits', () => {
   expect (Payment.fns.validateCardCVC('12377')).toBe(false);
 });
-test ('не пропускает строки с нецифровыми символами', () => {
+test ('CVC is incorrect, contains non digit characters', () => {
   expect (Payment.fns.validateCardCVC('12t')).toBe(false);
 });
 
@@ -45,7 +45,7 @@ const textHTML = `<body>
 
         <h2 class="validation"></h2>
 
-        <button id="btn" type="submit" disabled>Оплатить</button>
+        <button id="btn" type="submit" disabled>Pay</button>
     </form>
 </div>
 </body>
